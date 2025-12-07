@@ -1,6 +1,8 @@
 # sonic_emacs
 My simple Emacs 30 Configuration - still tweaking and learning
 It was mainly made with AI because I hate wasting time with configs.
+It works really well if you only use your computer to take notes, write org->LaTeX, make flashcards, and you can use emacs with this config on some android terminal emulator but that would just be overkill. I think the cross-platform issue is the main reason not to use it, followed by emacs verbosity. 
+RIP "It was a good experiment"
 
 ## Why?
 
@@ -37,6 +39,7 @@ To use it:
 - Connecting thoughts like a Wiki: Let's say I am writing a journal and talk about Physiology and I want "Physiology" to be a permanent note: Highlight it -> Press `C-c n i` (create node insert) -> it turns into a link `[[id:xyz][Physiology]]`
 - `C-c n f` (node find): search org-roam and jump to a file
 - `C-c n i` (node insert): turn the text you are typing right now into a link to another note
+- (for those command above you can just `M-x` and type `node` and find the commands like node find, node insert
 - `TAB` expands headings (show/hide text)
 
 ### Flashcards:
