@@ -8,8 +8,19 @@ I hate configuring things, to the point that I use GNOME, I think it is "sane en
 Emacs distributions and starter packs sometimes feel verbose, Emacs 30 already has eglot and tree-sitter, and I intend to use it as an editor and personal knowledge system integrated with also my workflow as a medical student, therefore the use of anki-editor (which I am still learning). I used/use Logseq (for notes) + syncthing + LaTeX (for summaries, slides and formal texts) and Emacs allows me to take notes and convert them to LaTeX with some ease, while also allowing me to do flashcards and clozes without much extra effort.
 
 
-## Packages:
-Includes org, org-roam, org-babel, anki-editor, Modus Vivendi theme, which-key.
+## Packages and dependencies:
+Dependency: texlive
+Packages: org, org-roam, org-babel, anki-editor, Modus Vivendi theme, which-key.
+
+## Usage:
+### Org to LaTeX:
+- `C-c C-e` Opens export dispatcher menu -> [l] export to LaTeX -> press `o` (as pdf and open) or press `p` (as PDF only)
+- Math Block:
+  `\begin{equation}
+\int_{0}^{\infty} x^2 dx
+\end{equation}`
+- Math Inline: `$E=mc^2$`
+- Heading: `* chapter 1`
 
 
 
