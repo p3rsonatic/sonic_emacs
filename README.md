@@ -12,6 +12,11 @@ Emacs distributions and starter packs sometimes feel verbose, Emacs 30 already h
 Dependency: texlive, anki-connect (anki Add-on code 2055492159)
 Packages: org, org-roam, org-babel, anki-editor, Modus Vivendi theme, which-key.
 
+To use it:
+- in `(setq dashboard-startup-banner (expand-file-name "~/tardis.png"))` remember to put a tardis.png in your home folder
+- also remember in `(org-roam-directory (file-truename "~/Documents/org-notes"))` to set the folder for your org-roam-notes
+- and run `org-id-update-id-locations` when first using
+
 ## Usage:
 
 ### Avoiding shortcuts:
