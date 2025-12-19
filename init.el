@@ -2,7 +2,9 @@
 
 ;; --- PACKAGE SETUP ---
 (require 'package)
-(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+(setq package-archives '(("melpa" . "https://melpa.org/packages/")
+                         ("elpa"  . "https://elpa.gnu.org/packages/")
+                         ("nongnu" . "https://elpa.nongnu.org/nongnu/")))
 (package-initialize)
 
 (unless (package-installed-p 'use-package)
@@ -25,8 +27,7 @@
   (yas-global-mode 1))
 
 ;; --- 2. VISUALS & DASHBOARD ---
-;; uncomment the following three if you want a cleaner but less intuitive look
-;; (menu-bar-mode -1) 
+;; (menu-bar-mode -1)
 ;; (tool-bar-mode -1)
 ;; (scroll-bar-mode -1)
 (load-theme 'modus-vivendi t)
@@ -68,5 +69,42 @@
 
 ;; --- 5. ANKI (The Memory) ---
 (use-package anki-editor)
+
+;; --- 6. COMPLETION & LSP (The HUD) ---
+
+(use-package orderless
+  :custom
+  (completion-styles '(orderless basic))
+  (completion-category-overrides '((file (styles basic partial-completion)))))
+
+(use-package corfu
+  ;; Corfu is in GNU ELPA
+  :init
+  (global-corfu-mode)
+  :custom
+  (corfu-auto t)
+  (corfu-cycle t)
+  (corfu-quit-at-boundary 'separator))
+
+;; Cape: Provides extra completion backends (required for better Eglot/Org integration)
+(use-package cape
+  :init
+  (add-to-list 'completion-at-point-functions #'cape-file)
+  (add-to-list 'completion-at-point-functions #'cape-dabbrev))
+
+(use-package eglot
+  :hook ((python-mode . eglot-ensure)
+         (c-mode . eglot-ensure))
+  :config
+  (add-to-list 'eglot-server-programs '(python-mode . ("basedpyright"))))
+
+;; --- 7. LITERATE PROGRAMMING (Babel & Tangling) ---
+(with-eval-after-load 'org
+  ;; Easier block insertion: Type "<s" followed by TAB
+  (require 'org-tempo) 
+  
+  (setq org-confirm-babel-evaluate nil) ;; Don't ask for permission to run code
+  (setq org-src-fontify-natively t)      ;; Syntax highlighting in blocks
+  (setq org-src-tab-acts-natively t))    ;; Use language-specific TAB behavior
 
 ;;; init.el ends here
