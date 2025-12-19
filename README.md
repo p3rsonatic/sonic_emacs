@@ -6,6 +6,8 @@ This Emacs configuration is extremely simple, I even keep the GUI elements and h
 
 My main issue is that it only works on PC, it would be nice if it could be used on the phone but for workflow reasons I am trying to use Emacs and org as a personal knowledge system, but for day to day notes especially with my phone I still use Logseq paired with Syncthing.
 
+<img width="877" height="900" alt="Screenshot From 2025-12-06 20-51-41" src="https://github.com/user-attachments/assets/bf5490f0-cb32-4f31-bfc6-da52ba89d987" />
+
 ## Why?
 
 I hate configuring things, to the point that I use GNOME, I think it is "sane engineering", I also hate having to learn tons of keybindings, but Emacs allows maximum expression and somewhat frictionless integration of many workflows. 
@@ -73,7 +75,7 @@ Sending to Anki:
 
 To send to Anki: Press `M-x anki-editor-push-tree`
 
-<img width="877" height="900" alt="Screenshot From 2025-12-06 20-51-41" src="https://github.com/user-attachments/assets/bf5490f0-cb32-4f31-bfc6-da52ba89d987" />
+
 
 ## Literate Programming:
 
@@ -119,8 +121,7 @@ Test code - A Hello World! in C
 This code block ran without any issues and outputed "Hello World!".
 ```
 The exported pdf output:
-
-<img width="948" height="841" alt="Screenshot From 2025-12-19 07-51-16" src="https://github.com/user-attachments/assets/31cc84cd-894a-4053-a57b-919fb32c98e2" />
+<img width="948" height="841" alt="Screenshot From 2025-12-19 07-53-59" src="https://github.com/user-attachments/assets/6f33789d-a468-41ec-80f1-ddf323094a63" />
 
 # Other recommendations
 
