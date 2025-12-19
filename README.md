@@ -79,6 +79,7 @@ To send to Anki: Press `M-x anki-editor-push-tree`
 
 (If you do not know literate programming you probably should check Donald Knuth's paper, it is only 15 pages and defines what it is)
 (Along with flashcards this is what I am most unfamiliar with, so it may not be as well optimized)
+(Note that babel may not have the language of your choice already toggled therefore run `M-x customize-variable org-babel-load-languages` and add the language(s) of your choice
 
 In an .org file you can add:
 ```
