@@ -90,7 +90,7 @@ In an .org file you can add:
 after src you can add the language to be used.
 - To execute the code you run `C-c C-c` inside the code block
 - To edit in a native buffer (to have LSP support for example) run `C-c '` then run `C-c '` again to save it
-- To tangle (the process of extracting code blocks into a standalone source file) add: `:tangle filename.py` to the header of the block:
+- To **Tangle** (the process of extracting code blocks into a standalone source file) add: `:tangle filename.py` to the header of the block:
 ```
 #+begin_src python :tangle my_script.py
 print("Hello from Org!")
@@ -98,7 +98,7 @@ print("Hello from Org!")
 ```
 Then press `C-c C-v t` to generate the file
 
-- Just like the org to LaTeX use, to Weave (exporting file to document) you should run the export dispatcher `C-c C-e` press `l` then `p` to export to PDF
+- Just like the org to LaTeX use, to **Weave** (exporting file to document) you should run the export dispatcher `C-c C-e` press `l` then `p` to export to PDF
 Example code:
 ```
 * Analysis of Coagulation Factors
