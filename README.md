@@ -2,9 +2,9 @@
 My simple Emacs 30 Configuration - still tweaking and learning
 It was mainly made with AI because I hate wasting time with configs.
 
-It works really well if you only use your computer to take notes, write org->LaTeX, make flashcards, and you can use emacs with this config on some android terminal emulator but that would just be overkill. I think the cross-platform issue is the main reason not to use it, followed by emacs verbosity. 
+This Emacs configuration is extremely simple, I even keep the GUI elements and have the package which-key installed to make it easier. It works well as an editor, agenda, personal knowledge management tool, write LaTeX, flashcards and literate programming. It only has the necessary packages installed and has no rebindings so that you do not have to learn anything new. 
 
-RIP "It was a good experiment"
+My main issue is that it only works on PC, it would be nice if it could be used on the phone but for workflow reasons I am trying to use Emacs and org as a personal knowledge system, but for day to day notes especially with my phone I still use Logseq paired with Syncthing.
 
 ## Why?
 
@@ -14,20 +14,20 @@ Emacs distributions and starter packs sometimes feel verbose, Emacs 30 already h
 
 ## Packages and dependencies:
 Dependency: texlive, anki-connect (anki Add-on code 2055492159)
-Packages: org, org-roam, org-babel, anki-editor, Modus Vivendi theme, which-key.
+Packages: org, org-roam, org-babel, anki-editor, Modus Vivendi theme, which-key, eglot, corfu, tree-sitter (note that some packages already come with Emacs 30)
 
 To use it:
 - in `(setq dashboard-startup-banner (expand-file-name "~/tardis.png"))` remember to put a tardis.png in your home folder
 - also remember in `(org-roam-directory (file-truename "~/Documents/org-notes"))` to set the folder for your org-roam-notes
 - and run `org-id-update-id-locations` when first using
 
-## Usage:
+# Usage:
 
-### Avoiding shortcuts:
+## Avoiding shortcuts:
 
 `which-key` and `fido-vertical-mode` allow you to press certain important bindings like `C-c`, `C-x`, `M-x` (Alt + x) and wait for half a second to show all available commands. Also I keep the toolbar and all that activated because the GUI eases entry.
 
-### Org to LaTeX:
+## Org to LaTeX:
 - `C-c C-e` Opens export dispatcher menu -> [l] export to LaTeX -> press `o` (as pdf and open) or press `p` (as PDF only)
 - Math Block:
   `\begin{equation}
@@ -36,7 +36,7 @@ To use it:
 - Math Inline: `$E=mc^2$`
 - Heading: `* chapter 1`
 
-### Org Personal Knowledge System
+## Org Personal Knowledge System
 - `M-x` (command search) -> type `dailies` -> choose `org-roam-dailies-capture-today` (emacs creates a file dated today)
 - Connecting thoughts like a Wiki: Let's say I am writing a journal and talk about Physiology and I want "Physiology" to be a permanent note: Highlight it -> Press `C-c n i` (create node insert) -> it turns into a link `[[id:xyz][Physiology]]`
 - `C-c n f` (node find): search org-roam and jump to a file
@@ -44,7 +44,7 @@ To use it:
 - (for those command above you can just `M-x` and type `node` and find the commands like node find, node insert
 - `TAB` expands headings (show/hide text)
 
-### Flashcards:
+## Flashcards:
 
 Anki cards are just headings with a tag:
 
@@ -74,3 +74,47 @@ Sending to Anki:
 To send to Anki: Press `M-x anki-editor-push-tree`
 
 <img width="877" height="900" alt="Screenshot From 2025-12-06 20-51-41" src="https://github.com/user-attachments/assets/bf5490f0-cb32-4f31-bfc6-da52ba89d987" />
+
+## Literate Programming:
+
+(If you do not know literate programming you probably should check Donald Knuth's paper, it is only 15 pages and defines what it is)
+(Along with flashcards this is what I am most unfamiliar with, so it may not be as well optimized)
+
+In an .org file you can add:
+```
+#+begin_src 
+#+end_src
+
+```
+after src you can add the language to be used.
+- To execute the code you run `C-c C-c` inside the code block
+- To edit in a native buffer (to have LSP support for example) run `C-c '` then run `C-c '` again to save it
+- To tangle (the process of extracting code blocks into a standalone source file) add: `:tangle filename.py` to the header of the block:
+```
+#+begin_src python :tangle my_script.py
+print("Hello from Org!")
+#+end_src
+```
+Then press `C-c C-v t` to generate the file
+
+- Just like the org to LaTeX use, to Weave (exporting file to document) you should run the export dispatcher `C-c C-e` press `l` then `p` to export to PDF
+Example code:
+```
+* Analysis of Coagulation Factors
+We can use Python to calculate the ratio between TP and TTPa for our patient.
+
+#+begin_src python :results output
+tp_value = 12.5
+ttpa_value = 34.2
+ratio = ttpa_value / tp_value
+print(f"The calculated ratio is: {ratio:.2f}")
+#+end_src
+
+#+RESULTS:
+: The calculated ratio is: 2.74
+```
+
+# Other recommendations
+
+While highly marketed and quite new, I recommend following the PARA file structure, Project, Area, Resource, Archive. Project being short term projects, Area being things you constantly work on (like university or job), Resource things that you will be using (like books), Archive being stuff you probably won't touch again, but need to keep saved.
+I believe org-roam can follow a similar structure, everything descending down 4 nodes each one for P A R A, it gets a falsely hierarchical structure which is easy to read, but can if needed mesh with other nodes in other "branches". What needs to be understood is this, while 2d representations are powerful and are more precise, their complexity and unreadability increases exponentially, that is why we still have 1d representations like tree file systems and prose text instead of concept maps, or even natural 1d languages instead of 2d ones like https://s.ai/nlws/ (Unker Non-Linear Writing System).
