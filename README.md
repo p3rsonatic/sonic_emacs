@@ -129,3 +129,8 @@ The exported pdf output:
 
 While highly marketed and quite new, I recommend following the PARA file structure, Project, Area, Resource, Archive. Project being short term projects, Area being things you constantly work on (like university or job), Resource things that you will be using (like books), Archive being stuff you probably won't touch again, but need to keep saved.
 I believe org-roam can follow a similar structure, everything descending down 4 nodes each one for P A R A, it gets a falsely hierarchical structure which is easy to read, but can if needed mesh with other nodes in other "branches". What needs to be understood is this, while 2d representations are powerful and are more precise, their complexity and unreadability increases exponentially, that is why we still have 1d representations like tree file systems and prose text instead of concept maps, or even natural 1d languages instead of 2d ones like https://s.ai/nlws/ (Unker Non-Linear Writing System).
+
+# Screenshot:
+
+<img width="774" height="941" alt="Screenshot From 2025-12-21 11-06-29" src="https://github.com/user-attachments/assets/e0136d82-28b5-4604-91e1-9587ad820a1b" />
+
