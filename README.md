@@ -1,4 +1,4 @@
-# sonic_emacs
+# Sonic Emacs
 My simple Emacs 30 Configuration - still tweaking and learning
 It was mainly made with AI because I hate wasting time with configs.
 
