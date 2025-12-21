@@ -6,7 +6,7 @@ This Emacs configuration is extremely simple, I even keep the GUI elements and h
 
 My main issue is that it only works on PC, it would be nice if it could be used on the phone but for workflow reasons I am trying to use Emacs and org as a personal knowledge system, but for day to day notes especially with my phone I still use Logseq paired with Syncthing.
 
-<img width="877" height="900" alt="Screenshot From 2025-12-06 20-51-41" src="https://github.com/user-attachments/assets/bf5490f0-cb32-4f31-bfc6-da52ba89d987" />
+<img width="941" height="908" alt="Screenshot From 2025-12-21 11-03-02" src="https://github.com/user-attachments/assets/65280e05-fb4c-40f7-b980-8e02d193859f" />
 
 ## Why?
 
