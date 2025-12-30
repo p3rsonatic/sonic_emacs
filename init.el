@@ -119,13 +119,7 @@
   ;; Visual Bullets
   (use-package org-bullets
     :config (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
-  
-  ;; LaTeX & Math Rendering
-  (require 'ox-latex)
-  (setq org-format-latex-options (plist-put org-format-latex-options :scale 1.5))
-  (add-to-list 'org-latex-packages-alist '("" "amsmath" t))
-  (add-to-list 'org-latex-packages-alist '("" "amssymb" t))
-  
+    
   ;; Babel: Language Support
   (org-babel-do-load-languages
    'org-babel-load-languages
@@ -147,7 +141,55 @@
       org-edit-src-content-indentation 0)
 
 ;; ==========================================
-;; 6. ORG ROAM (The Brain)
+;; 6. LaTeX EXPORT CONFIGURATION
+;; ==========================================
+;; Add these to the beginning of the document:
+;; #+TITLE: Your Title
+;; #+AUTHOR: PBS
+;; #+DATE: 2026
+;; #+LATEX_CLASS: custom-book
+;;
+;; If you want to add native LaTeX you can for example do \newpage, but you can also do something like:
+;;#+BEGIN_EXPORT latex
+;;\begin{multicols}{2}
+;;#+END_EXPORT
+
+(require 'ox-latex)
+(setq org-latex-compiler "xelatex")
+
+;; Adjust Preview Scale
+(setq org-format-latex-options (plist-put org-format-latex-options :scale 1.5))
+
+;; Define the Custom Class
+(add-to-list 'org-latex-classes
+             '("custom-book"
+               "\\documentclass{book}
+\\usepackage{multicol}
+\\usepackage{float}
+\\usepackage{fontspec} % Required for XeLaTeX font selection
+\\usepackage{graphicx}
+\\usepackage{color}
+\\usepackage[a4paper, total={8in, 10in}]{geometry}
+\\usepackage{lmodern} % necessary for small font
+\\usepackage{fix-cm} % necessary for small font
+\\usepackage{enumitem} % removes whitespaces between lists and others
+\\usepackage{parskip} %removes whitespaces between lines
+\\usepackage{blindtext} % allows clearing double pages (I think)
+[DEFAULT-PACKAGES]
+[PACKAGES]
+[EXTRA]
+\\graphicspath{{images/}}
+\\let\\cleardoublepage=\\clearpage"
+               ("\\part{%s}" . "\\part*{%s}")
+               ("\\chapter{%s}" . "\\chapter*{%s}")
+               ("\\section{%s}" . "\\section*{%s}")
+               ("\\subsection{%s}" . "\\subsection*{%s}")
+               ("\\subsubsection{%s}" . "\\subsubsection*{%s}")))
+  
+
+
+;; ==========================================
+;; 7. ORG ROAM (The Brain)
 ;; ==========================================
 
 (use-package org-roam
@@ -158,7 +200,7 @@
   (org-roam-db-autosync-mode))
 
 ;; ==========================================
-;; 7. SYSTEM GENERATED SETTINGS
+;; 8. SYSTEM GENERATED SETTINGS
 ;; ==========================================
 
 (custom-set-variables
